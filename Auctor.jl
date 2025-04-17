@@ -408,19 +408,19 @@ function main(args)
 
     logfh = nothing
     logfilename = ""
-    if !dry_run
-        try
-             logfilename = "auctor_"*Dates.format(now(),"yyyymmdd_HHMMSS")*".log"
-             logfh = open(logfilename, "w")
-             println(logfh, "# Auctor Log: $(now())")
-             println(logfh, "# Format: original_basename ⟶ new_basename")
-             println(logfh, "# Processed $(length(todo)) files.")
-             @info "Logging renames to: $logfilename"
-        catch e
-             @error "Could not open log file '$logfilename': $e. Logging disabled."
-             logfh = nothing
-        end
-    end
+    # if !dry_run
+    #     try
+    #          logfilename = "/tmp/auctor_"*Dates.format(now(),"yyyymmdd_HHMMSS")*".log"
+    #          logfh = open(logfilename, "w")
+    #          println(logfh, "# Auctor Log: $(now())")
+    #          println(logfh, "# Format: original_basename ⟶ new_basename")
+    #          println(logfh, "# Processed $(length(todo)) files.")
+    #          @info "Logging renames to: $logfilename"
+    #     catch e
+    #          @error "Could not open log file '$logfilename': $e. Logging disabled."
+    #          logfh = nothing
+    #     end
+    # end
 
     ren, skip, exists_err, dry_proposals = 0, 0, 0, 0
     total = length(todo)
