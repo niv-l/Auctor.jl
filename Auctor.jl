@@ -6,7 +6,7 @@
 # If needed:  using Pkg; Pkg.add("JSON")
 
 using JSON, Unicode, Dates, Printf
-using Logging # Added for configure_logging
+# using Logging
 
 # ───────────────────────── helpers ────────────────────────────────────────
 
